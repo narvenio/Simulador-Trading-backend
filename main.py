@@ -15,12 +15,14 @@ app = FastAPI(lifespan = inicio)
 metadata.create_all(bind=engine)
 
 origenes_permitidos = [
-    ""
+    "https://narvenio.github.io/Simulador-Trading-frontend/",
+    "https://simulador-trading-backend.onrender.com",
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ["http://127.0.0.1:5500"],
+    allow_origins = origenes_permitidos,
+    allow_credentials=True,
     allow_methods = ["*"],
     allow_headers = ["*"]
 # aqui estamos usando un intermediario "middelware" que interviene entre el servidor y el navegador
