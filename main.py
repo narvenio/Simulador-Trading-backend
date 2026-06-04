@@ -15,7 +15,7 @@ app = FastAPI(lifespan = inicio)
 metadata.create_all(bind=engine)
 
 origenes_permitidos = [
-    "https://narvenio.github.io/Simulador-Trading-frontend/",
+    "https://narvenio.github.io",
     "https://simulador-trading-backend.onrender.com",
 ]
 
