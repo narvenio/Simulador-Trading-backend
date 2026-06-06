@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy import Column, Integer, String, Float, column, ForeignKey, DateTime
+from sqlalchemy.orm import relationship
 from database import Base
 
 
@@ -30,6 +31,7 @@ class Transaction(Base):
     total_price = Column(Float, nullable= False)
     type         = Column(String, nullable= False)
     timestamp    = Column(DateTime, default = datetime.now)
+    asset = relationship("Asset")
 print("Models.py cargado con timestamp")
 
 

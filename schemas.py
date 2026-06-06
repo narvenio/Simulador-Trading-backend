@@ -77,6 +77,7 @@ class TransactionResponse(BaseModel):
     total_price: float
     type: str
     timestamp: datetime
+    asset: AssetResponse
 
 
     class Config:
