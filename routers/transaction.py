@@ -24,6 +24,7 @@ def get_user_transactions(user_id: int, db: Session = Depends(get_db)):
         .filter(models.Transaction.user_id == user_id)
         .all()
     )
+    return transactions
     #transactions = db.query(models.Transaction).filter(models.Transaction.user_id == user_id).all()
 # consultamos en la tabla de transacciones, luego filtramos hasta llegar al usuario
 # y que sea igual al user_id que creamos. Luego trae todo eso y guardalo en la variable
