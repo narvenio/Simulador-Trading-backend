@@ -21,15 +21,22 @@ def get_market(db: Session = Depends(get_db)):
     market_data = []
 
     for asset in assets:
-        simulated = simulate_price(asset.price)
+        id_crypto = asset.id
+        nombre_crypto = asset.name
+        simbolo_crypto = asset.symbol
+        precio_base = asset.price
+        precio_simulado = simulate_price(precio_base)
+        simulated = precio_simulado
+        
 # recorremos todos los assets, lo guardamos en "asset" y definimos el precio simulado
 
         market_data.append(
             MarketItemResponse(
-                asset_id = asset.id,
-                name = asset.name,
-                symbol = asset.symbol,
-                base_price = asset.price,
+                
+                asset_id = id_crypto,
+                name = nombre_crypto,
+                symbol = simbolo_crypto,
+                base_price = precio_base,
                 simulated_price = simulated
 
         )
