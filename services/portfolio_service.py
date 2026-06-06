@@ -17,12 +17,10 @@ def update_portafolio(db: Session, user_id:int, asset_id: int, quantity: float, 
 # si no existe item, crealo dentro de la tabla "Porfolio" y que se guarde
 
     if operation == "BUY":
-        cantidad = item.quantity
-        cantidad += quantity
+        item.quantity += quantity
 
     if operation == "SELL":
-        cantidad = item.quantity
-        cantidad -= quantity
+        item.quantity -= quantity
 
     db.commit()
     db.refresh(item)
